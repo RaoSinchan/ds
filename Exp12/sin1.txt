@@ -1,26 +1,31 @@
 object Sample {
     def main(args: Array[String]) {
+         var ch:Char=0
+        var num1:Int=0
+        var num2:Int=0
+        var result:Int=0 
+        
         print("Choose operation to perform (+,-,*,/,%): ")
-        val ch = scala.io.StdIn.readChar()
+        ch = scala.io.StdIn.readChar()
 
         print("Enter first number: ")
-        val num1 = scala.io.StdIn.readInt()
+        num1 = scala.io.StdIn.readInt()
 
         print("Enter second number: ")
-        val num2 = scala.io.StdIn.readInt()
+        num2 = scala.io.StdIn.readInt()
 
-        val result = ch match {
-            case '+' => Some(num1 + num2)
-            case '-' => Some(num1 - num2)
-            case '*' => Some(num1 * num2)
+        ch match {
+            case '+' => result=num1 + num2
+            case '-' => result=num1 - num2
+            case '*' => result=num1 * num2
             case '/' =>
-                if (num2 != 0) Some(num1 / num2)
+                if (num2 != 0) result=num1 / num2
                 else {
                     println("Error: Division by zero.")
                     None
                 }
             case '%' =>
-                if (num2 != 0) Some(num1 % num2)
+                if (num2 != 0) result=num1 % num2
                 else {
                     println("Error: Modulo by zero.")
                     None
@@ -30,6 +35,6 @@ object Sample {
                 None
         }
 
-        result.foreach(r => println("Result: " + r))
+         println("Result: " + result)
     }
 }
